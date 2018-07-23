@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>Basic work with arrays in JavaScript</title>
+    </head>
+    <body>
+        <script src="arrays.js"></script>
+        <script>
+        document.writeln("Creating an array of numbers...");
+        var arrayOfNumbers = new Array(4);
+        arrayOfNumbers[0] = 12;
+        arrayOfNumbers[1] = 23.5;
+        arrayOfNumbers[2] = 19;
+        arrayOfNumbers[3] = -45.43;
+        printArray(arrayOfNumbers);
+        document.writeln("<br>");
+        document.writeln("Calculating the max element in the array...");
+        var max = getMax(arrayOfNumbers);
+        document.writeln("The max number in the array is: " + max);
+        </script>
+
+    <br>
+    <h1>Creando un array de diferentes tipos en JavaScript</h1>
+    <script>
+    var arrayOfDifferentTypes = new Array(4);
+    arrayOfDifferentTypes[0] = "This is an string";
+    arrayOfDifferentTypes[1] = true;
+    arrayOfDifferentTypes[2] = 12;
+    arrayOfDifferentTypes[3] = 394.11;
+    printArray(arrayOfDifferentTypes);
+    document.writeln("<br><h2>Changing the item of the above array at position 2</h2>");
+    arrayOfDifferentTypes[2] = "Another string replacing the number before stored in this position";
+    document.writeln("<br>");
+    printArray(arrayOfDifferentTypes);
+    </script>
+    </body>
+</html>

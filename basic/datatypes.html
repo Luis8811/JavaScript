@@ -1,0 +1,25 @@
+<hmtl>
+    <head>
+        <title>Working with datatypes in JavaScript</title>
+    </head>
+    <body>
+        <script src="datatypes.js"></script>
+        <script>
+        var calculationWasPerformed = false;
+        while(calculationWasPerformed == false){
+         var fahrenheitTemperature = prompt("Enter the fahrenheit temperature", 0);
+         var centigradeTemperature = fahrenheitToCentigrade(fahrenheitTemperature);
+         var centigradeTemperatureNumber = parseFloat(centigradeTemperature);
+             if(isNaN(centigradeTemperatureNumber)){
+             alert("Attention! Fahrenheit temperature must be a number");
+             }else{
+                alert("The temperature in centigrades is " + centigradeTemperature);
+                calculationWasPerformed = true;
+                document.writeln("<p>" + fahrenheitTemperature + " <i>degress Fahrenheit</i> = " + centigradeTemperature + " <i>degrees Centigrade</i>" + "</p>");
+             }
+
+        }
+         
+        </script>
+    </body>
+</hmtl>

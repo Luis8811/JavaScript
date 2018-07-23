@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>Basic use of JavaScript</title>
+    </head>
+    <body bgcolor="Blue">
+        <p>Paragraph of example</p>
+        <!-- Uso de JavaScript-->
+        <script src="background_color.js"></script> 
+        <!-- Debo notar que con poner solamente script me asume por
+        defecto que voy a trabajar con el lenguaje de sript JavaScript-->
+        <script>
+        alert("Cambiando el color de fondo a verde.");
+        document.bgColor="Green";
+        </script>
+        <p id="paragraph">The bgcolor of the web page was changed by JavaScript to Red and after of the alert to green</p>
+        <script>
+                alert("Cambiando el color de fondo a amarillo.");
+                document.bgColor="Yellow";
+                document.getElementById("paragraph").innerHTML += " and after the second alert to yellow";
+                </script>
+    </body>
+</html>
