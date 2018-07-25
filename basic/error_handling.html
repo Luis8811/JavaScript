@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>Working with JavaScript</title>
+    </head>
+    <body>
+        <script src="error_handling.js"></script>
+        <script>
+        var numberToCalculate = prompt("Introduce un número para calcular el factorial", 0);
+        try{
+            var numberIntroduced = parseInt(numberToCalculate);
+            var result = factorial(numberIntroduced);
+            alert("El factorial de " + numberToCalculate + " es: " + result);
+
+        }catch(exception){
+          alert(exception);
+        }
+        </script>
+        <h2>Calcular una tabla de los factoriales de diferentes números</h2>
+        <form action="" id="form1">
+            <input type="text" placeholder="Introduzca el número de inicio" id="startNumber">
+            <input type="text" placeholder="Introduzca el tamaño de la tabla" id="tableSize">
+            <input type="button" value="Crear tabla" onclick="showResultsOfTableOfFactorials()">
+        </form>
+        <script>
+        function showResultsOfTableOfFactorials(){
+            try{
+            var firstN = parseInt(document.getElementById("form1").startNumber.value);
+            var sizeOfTable = parseInt(document.getElementById("form1").tableSize.value);
+            try{
+               var arrayObtained = calculateTableOfFactorials(firstN, sizeOfTable);
+               for(var i=0; i < arrayObtained.length; i++){
+                   document.write("<b> Factorial de " + (firstN + i).toString() + " : ");
+                   document.write("<b>" + arrayObtained[i].toString() + "</b>");
+                   document.write("<br>");
+               }
+            }catch(exception){
+              alert("Error ocurrido con la función de crear el array de factoriales");
+              alert(exception);
+            }
+           }catch(exception){
+              alert("Error ocurrido con los números introducidos. Verifique que sean números enteros positivos");
+           }
+           finally{
+               alert("Código terminado");
+               return;
+           }    
+        }
+        </script>
+    </body>
+</html>
