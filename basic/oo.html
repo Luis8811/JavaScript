@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>Object Oriented JavaScript</title>
+    </head>
+    <body>
+        <h1>The basics of Object Oriented JavaScript</h1>
+        <p>Este tema lo puedo ver en el capítulo correspondiente en la bibliografía recomendada</p>
+        <script src="oo.js">
+        </script>
+        <script src="arrays.js"></script>
+        <script>
+        document.write("Mostrando elementos de un array<br>");
+         var arrayOfNumbers = new Array(3,3,2,10,29,1,5);
+         printArray(arrayOfNumbers);
+         document.write("<br>Ordenando el array por defecto (alfabéticamente)<br>");
+         arrayOfNumbers.sort(); // By default, the sort() method sorts the values as strings in alphabetical and ascending order.
+         printArray(arrayOfNumbers);
+         document.write("<br>Mostrando el array ordenado nuevamente<br>"); //ver la página descargada en la carpeta de Tec y Rec Web Móvil
+         arrayOfNumbers.sort(function(a, b){return a-b});
+         printArray(arrayOfNumbers);
+         document.write("<br>Probando otros métodos de la clase Array de JavaScript");
+         document.write("<br>Método reverse<br>");
+         arrayOfNumbers.reverse();
+         printArray(arrayOfNumbers);
+         document.write("<br>Método reverse<br>");
+         document.write("<br>Probando el método de unir 2 arrays");
+         var arrayOfNumbers2 = new Array(8,96,1029);
+         document.write("<br>Creando un segundo array");
+         document.write("<br>Segundo array:<br>");
+         printArray(arrayOfNumbers2);
+         var array3 = arrayOfNumbers.concat(arrayOfNumbers2);
+         document.write("<br>Uso del método concat para unir dos o más arrays (el primer array y el segundo, se crea un array3 con la unión de los anteriores):<br>");
+         printArray(array3);
+         document.write("<br>Uso del concat para unir los 3 arrays (array1, array2, array3)<br>");
+         var array4 = arrayOfNumbers.concat(arrayOfNumbers2,array3);
+         printArray(array4);
+         document.write("<br>Para aprender más sobre la clase Array y sus métodos se recomienda ir a la página de la w3schools");
+         document.write("<br>En la bibliografía capítulo 5 del libro 1  se mestran los objetos Date, String, Array, todo estos objetos puedo profundizarlos además en la w3schools<br>");
+         document.write("<br>Trabajando con los tipos de datos por referencia en JavaScript. Sobrecarga de funciones<br>");
+         var student1 = new Student("Luis","Male",29); //ver el tema de sobrecarga de funciones en JavaScript
+         var student2 = new Student("Mary", "Female", 28, "Spain");
+         var student3 = new Student();
+         var student4 = new Student("Laura");
+         var student5 = new Student("Verónica", "Female");
+         document.write("<br>Mostrando toda la información de los tipos por referencia creados<br>");
+         document.write(student1.getAllInfoOfStudent());
+         document.write("<br>");
+         document.write(student2.getAllInfoOfStudent());
+         document.write("<br>");
+         document.write(student3.getAllInfoOfStudent());
+         document.write("<br>");
+         document.write(student4.getAllInfoOfStudent());
+         document.write("<br>");
+         document.write(student5.getAllInfoOfStudent());
+        </script>
+    </body>
+</html>
+
