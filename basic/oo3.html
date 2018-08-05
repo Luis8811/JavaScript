@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Working with Object Oriented JavaScript. Properties</title>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <script>
+          // Creating an object with several properties
+          var country = {
+              name: "Cuba",
+              language: "Spanish",
+              capital: "Havana",
+              economy: "tourism, agriculture, health-tourism",
+              sitesOfInterest: "Havana, Varadero, Jardines del Rey",
+              getSiteOfInterest: function(ranking){
+                  // this function returns the site of Interest with the value of the ranking
+                let sites = this.sitesOfInterest.split(",");
+                if(ranking>=0 && ranking<(sites.length+1)){
+                    return sites[ranking-1];
+                }else{
+                    return sites[0];
+                }
+              }
+          };
+
+          // Displaying in the web browser the properties of the object
+          document.write("<h1>Working with Properties in JavaScript. JavaScript Object Oriented</h1>");
+          document.write("<br>" +  "<h3> Country: " + country.name + "<br>Language: " + country.language
+        + "<br> Capital: " + country.capital + "<br>Economy: " + country.economy + "<br>Sites of interest: "
+    + country.sitesOfInterest + "<br>First site of interest: " + country.getSiteOfInterest(1) +  "<br>Third site of interest: " + country.getSiteOfInterest(3));
+          document.write("</h3>");
+
+        // Displaying all the properties of the Object Form1
+        document.write("<br><h4><b>Displaying all the properties of the object 1</b><br>");
+        var property; 
+        for(property in country) {
+            document.write("Name: " + property + " Value: " + country[property]); 
+        }
+        document.write("</h4>");
+
+        // Displaying all the properties of the Object Form2
+        document.write("<br><br><h4>Another form of displaying the properties is showed in the console.</h4>");
+        var properties = Object.keys(country); // if you want to mimic for-in behavior
+        var i , len ; for ( i = 0 , len = properties.length; i<len ; i ++ ){ 
+            console.log("Name: " + properties[i]);
+            console.log("Value: " + country[properties[i]]); }
+
+
+        </script>
+    </body>
+</html>
