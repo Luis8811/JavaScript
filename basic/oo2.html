@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>Working with Objects in JavaScript. Object methods</title>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <script>
+        //Creating an object to display several fruits and beverages
+        var groceries = {
+            beverages : "",
+            getFruits: function(){
+                return "Apricots, Tangarines, Oranges, Cherries, Watermelons";
+            },
+
+             // this function call another method of the object
+            printResults: function(){
+                let fruitsOferted2 = this.getFruits().split(",");
+                for(let i = 0; i < fruitsOferted2.length; i++){
+                    console.log(i.toString() + " " + fruitsOferted2[i]+ " ");
+                }
+            }, 
+
+           // function with a parameter inside the object
+            addBeverage: function(beverageWithPrice){
+              this.beverages += beverageWithPrice;
+              },
+
+            getBeverages: function(){
+               console.log("Displaying the beverages:");
+               let arrayOfBeverages = this.beverages.split("E");
+               for(let i=0; i< arrayOfBeverages.length; i++){
+                   console.log(arrayOfBeverages[i]);
+               }
+            }
+        };
+        // Testing the methods of the object
+        groceries.printResults(groceries.getFruits()); //Displaying some results in the console of the Web Browser
+        groceries.addBeverage("Milk, 5.65 E");
+        groceries.addBeverage("Rum, 8.90 E");
+        groceries.addBeverage("Wine, 0.99 E");
+        groceries.getBeverages(); 
+        </script>
+    </body>
+</html>
