@@ -54,6 +54,29 @@
             }, writable : true}
         });
 
+        var person3 = Object.create(person2,
+         {
+            _passport:{
+                configurable : true , enumerable : true , value : "Cuba" , writable : true
+            },
+            get passport(){
+                return this._passport;
+            },
+            set passport(value){
+                this._passport = value;
+            },
+            _maritalStatus: {
+                configurable : true , enumerable : true , value : "single" , writable : true
+            },
+            get maritalStatus(){
+                return this._maritalStatus;
+            },
+            set maritalStatus(value){
+                this._maritalStatus = value;
+            }
+            
+        });
+
         // Testing inheritance. person2 inherits properties from person1
         document.write("<h1>Two objects person1 and person2" + "</h1>");
         document.write("<br>Displaying the names of person1 and person2...<br>");
@@ -67,6 +90,13 @@
         document.write("<br><i>"+ "Modifying the age in person2 to 30 years old" + "</i>");
         person1.print("Person1 - Age",person1.age.toString());
         person2.print("Person2 - Age",person2.age.toString());
+        document.write("<br><br><i>Creating another person, person3 that inherits from person2 and adds other properties</i>");
+        document.write("<br><i>Displaying properties of person3</i>");
+        person3.sayName();
+        person3.print("Person3 - Country", person3.country);
+        person3.print("Person3 - Age", person3.age.toString());
+        person3.print("Person3 - Passport", person3.passport);
+        person3.print("Person3 - Marital status", person3.maritalStatus);
         </script>
     </body>
 </html>
