@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Object Oriented JavaScript. Inheritance.</title>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <script>
+        document.write("<h1>Working with inheritance in JavaScript. Object-Oriented JavaScript</h1>");
+        var person1 = {
+            name : "Nicholas" , sayName : function () {
+                document.write("<br>Name: " + this.name);
+             },
+             _country: "Spain",
+             _age: 29,
+             get country(){
+                 return this._country;
+             },
+
+             set country(value){
+                 this._country = value;
+             },
+
+             get age(){
+                 return this._age;
+             },
+
+             set age(value){
+                 this._age = value;
+             },
+            print: function(text, value){
+                 document.write("<br>" + text + ": " + value);
+             }
+
+        };
+
+        var person2 = Object.create(person1,
+         {
+             //Form of to do something similar to polymorphism
+             name:{
+                 configurable : true , enumerable : true , value : "Greg" , writable : true
+                  },
+            print:{
+                configurable : true , enumerable : true , value: function(text, value){
+                document.write("<br><h3><b>" + text + ": " + value + "</b></h3>");
+            }, writable : true}
+        });
+
+        // Testing inheritance. person2 inherits properties from person1
+        document.write("<h1>Two objects person1 and person2" + "</h1>");
+        document.write("<br>Displaying the names of person1 and person2...<br>");
+        person1.sayName();
+        person2.sayName (); // sayName is inherited from person1
+        person1.print("Person1 - Country", person1.country);
+        person2.print("Person2 - Country", person2.country); // print is override in person2 but country is inherited
+        person1.print("Person1 - Age",person1.age.toString());
+        person2.print("Person2 - Age",person2.age.toString());
+        person2.age=30;
+        document.write("<br><i>"+ "Modifying the age in person2 to 30 years old" + "</i>");
+        person1.print("Person1 - Age",person1.age.toString());
+        person2.print("Person2 - Age",person2.age.toString());
+        </script>
+    </body>
+</html>
